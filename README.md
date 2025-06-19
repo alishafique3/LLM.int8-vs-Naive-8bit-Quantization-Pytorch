@@ -1,2 +1,2 @@
-# Naive 8-bit Weight Quantization vs LLM.int8 Using Pytorch
+# LLM.int8 vs Naive 8-bit Weight Quantization Using Pytorch
 [In progress]
