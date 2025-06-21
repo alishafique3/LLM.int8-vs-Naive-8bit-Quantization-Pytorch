@@ -3,8 +3,8 @@
 Large Language Models (LLMs) are compute-hungry beasts. Their size = number of parameters × precision. To reduce memory and accelerate inference, I explored quantization techniques, compressing weights from FP32 to INT8.
 
 I ran two from-scratch methods:
-• Absmax (symmetric) quantization
-• Zeropoint (asymmetric) quantization
+- Absmax (symmetric) quantization
+- Zeropoint (asymmetric) quantization
 
 Both reduced memory significantly… but at a cost: higher perplexity, due to sensitivity to outliers.
 
@@ -13,14 +13,14 @@ Outliers, extreme values (negative or positive), are common in transformer layer
 
 ## 𝗦𝗼𝗹𝘂𝘁𝗶𝗼𝗻: 𝗟𝗟𝗠.𝗶𝗻𝘁𝟴() (Bitsandbytes)
 This method applies vector-wise quantization + mixed precision:
-• Most weights → INT8
-• Outliers (~0.1%) → FP16
+- Most weights → INT8
+- Outliers (~0.1%) → FP16
 
 The result: better accuracy with 2.9× smaller memory.
 
 ## 𝗠𝗲𝗺𝗼𝗿𝘆 𝗙𝗼𝗼𝘁𝗽𝗿𝗶𝗻𝘁
-• Original (FP16): 510 MB
-• INT8: 176 MB
+- Original (FP16): 510 MB
+- INT8: 176 MB
 
 🧠 Pro tip: Mixed INT8+FP16 handles outliers without effecting model performance — ideal for real-world LLM deployments.
 
