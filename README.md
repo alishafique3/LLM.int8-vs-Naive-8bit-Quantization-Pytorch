@@ -1,7 +1,5 @@
 # LLM.int8 vs Naive 8-bit Weight Quantization Using Pytorch
 
-[In progress]
-
 Large Language Models (LLMs) are compute-hungry beasts. Their size = number of parameters × precision. To reduce memory and accelerate inference, I explored quantization techniques, compressing weights from FP32 to INT8.
 
 I ran two from-scratch methods:
